@@ -4,6 +4,7 @@
 //
 //  Created by Logan Melton on 6/5/23.
 //
+//  swiftlint: disable legacy_random
 
 import UIKit
 
@@ -15,9 +16,9 @@ extension CGFloat {
 
 extension UIColor {
   static func random() -> UIColor {
-    return UIColor(red:   .random(),
+    return UIColor(red: .random(),
                    green: .random(),
-                   blue:  .random(),
+                   blue: .random(),
                    alpha: 1.0)
   }
 }

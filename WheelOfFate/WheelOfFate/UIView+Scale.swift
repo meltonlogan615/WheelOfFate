@@ -18,7 +18,7 @@ extension UIView {
     }
     self.layer.add(scaleAnimation, forKey: nil)
   }
-  
+
   func overScale(duration: CFTimeInterval = 1, completionDelegate: CAAnimationDelegate? = nil) {
     let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
     scaleAnimation.fromValue = 1.0
@@ -29,7 +29,7 @@ extension UIView {
     }
     self.layer.add(scaleAnimation, forKey: nil)
   }
-  
+
   func returnToScale(duration: CFTimeInterval = 3, completionDelegate: CAAnimationDelegate? = nil) {
     let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
     scaleAnimation.fromValue = 1.2
@@ -41,4 +41,3 @@ extension UIView {
     self.layer.add(scaleAnimation, forKey: nil)
   }
 }
-

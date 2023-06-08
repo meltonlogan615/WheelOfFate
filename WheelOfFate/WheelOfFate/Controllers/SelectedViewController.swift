@@ -11,14 +11,14 @@ class SelectedViewController: UIViewController {
   var selectedView: SelectedView!
   var selected: String!
   var message: String!
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .clear
     style()
     layout()
   }
-  
+
   convenience init(selected: String, message: String) {
     self.init()
     self.selected = selected
@@ -34,7 +34,7 @@ extension SelectedViewController {
     selectedView.messageLabel.text = message
     selectedView.startOverButton.addTarget(self, action: #selector(startOverBooped), for: .touchUpInside)
   }
-  
+
   func layout() {
     view.addSubview(selectedView)
     NSLayoutConstraint.activate([
@@ -52,4 +52,3 @@ extension SelectedViewController {
     self.dismiss(animated: true)
   }
 }
-

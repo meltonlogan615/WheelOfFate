@@ -30,6 +30,6 @@ struct TestData {
     "Alex Lifeson": "Rosh",
     "Les Claypool": "Primus",
     "Tim Alexander": "Primus",
-    "Larry Lalonde": "Primus",
+    "Larry Lalonde": "Primus"
   ]
 }

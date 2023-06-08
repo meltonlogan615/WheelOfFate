@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		32D630762A2E527E0057F50A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D630752A2E527E0057F50A /* AppDelegate.swift */; };
 		32D630782A2E527E0057F50A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D630772A2E527E0057F50A /* SceneDelegate.swift */; };
-		32D6307A2A2E527E0057F50A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D630792A2E527E0057F50A /* ViewController.swift */; };
+		32D6307A2A2E527E0057F50A /* WheelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D630792A2E527E0057F50A /* WheelViewController.swift */; };
 		32D6307D2A2E527E0057F50A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6307B2A2E527E0057F50A /* Main.storyboard */; };
 		32D6307F2A2E527F0057F50A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32D6307E2A2E527F0057F50A /* Assets.xcassets */; };
 		32D630822A2E527F0057F50A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D630802A2E527F0057F50A /* LaunchScreen.storyboard */; };
@@ -27,13 +27,15 @@
 		32D630AC2A2E58FE0057F50A /* WheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D630AB2A2E58FE0057F50A /* WheelView.swift */; };
 		32D630AE2A2E593B0057F50A /* CGFloat+ToRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D630AD2A2E593B0057F50A /* CGFloat+ToRadians.swift */; };
 		32D630B02A2E59630057F50A /* WheelAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D630AF2A2E59630057F50A /* WheelAnimation.swift */; };
+		32D630B42A2FAE710057F50A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D630B32A2FAE710057F50A /* ViewController.swift */; };
+		32D630BC2A2FE0520057F50A /* FileUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D630BB2A2FE0520057F50A /* FileUpload.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		32D630722A2E527E0057F50A /* WheelOfFate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WheelOfFate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32D630752A2E527E0057F50A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32D630772A2E527E0057F50A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		32D630792A2E527E0057F50A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		32D630792A2E527E0057F50A /* WheelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelViewController.swift; sourceTree = "<group>"; };
 		32D6307C2A2E527E0057F50A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		32D6307E2A2E527F0057F50A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32D630812A2E527F0057F50A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +54,9 @@
 		32D630AB2A2E58FE0057F50A /* WheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelView.swift; sourceTree = "<group>"; };
 		32D630AD2A2E593B0057F50A /* CGFloat+ToRadians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+ToRadians.swift"; sourceTree = "<group>"; };
 		32D630AF2A2E59630057F50A /* WheelAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelAnimation.swift; sourceTree = "<group>"; };
+		32D630B32A2FAE710057F50A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		32D630BB2A2FE0520057F50A /* FileUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUpload.swift; sourceTree = "<group>"; };
+		32D630BD2A3118800057F50A /* WheelOfFate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WheelOfFate.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +89,7 @@
 		32D630742A2E527E0057F50A /* WheelOfFate */ = {
 			isa = PBXGroup;
 			children = (
+				32D630BD2A3118800057F50A /* WheelOfFate.entitlements */,
 				32D630892A2E52920057F50A /* Utilities */,
 				32D6308D2A2E52C40057F50A /* Models */,
 				32D6308C2A2E52B90057F50A /* Views */,
@@ -106,7 +112,8 @@
 		32D6308A2A2E52A40057F50A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				32D630792A2E527E0057F50A /* ViewController.swift */,
+				32D630B32A2FAE710057F50A /* ViewController.swift */,
+				32D630792A2E527E0057F50A /* WheelViewController.swift */,
 				32D630912A2E571C0057F50A /* SelectedViewController.swift */,
 			);
 			path = Controllers;
@@ -128,6 +135,7 @@
 			children = (
 				32D630982A2E57BF0057F50A /* TestData.swift */,
 				32D630A72A2E58BD0057F50A /* WheelError.swift */,
+				32D630BB2A2FE0520057F50A /* FileUpload.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -175,12 +183,15 @@
 				32D6306E2A2E527E0057F50A /* Sources */,
 				32D6306F2A2E527E0057F50A /* Frameworks */,
 				32D630702A2E527E0057F50A /* Resources */,
+				32D630B52A2FAEB40057F50A /* SwiftLint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = WheelOfFate;
+			packageProductDependencies = (
+			);
 			productName = WheelOfFate;
 			productReference = 32D630722A2E527E0057F50A /* WheelOfFate.app */;
 			productType = "com.apple.product-type.application";
@@ -209,6 +220,8 @@
 				Base,
 			);
 			mainGroup = 32D630692A2E527E0057F50A;
+			packageReferences = (
+			);
 			productRefGroup = 32D630732A2E527E0057F50A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,6 +244,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		32D630B52A2FAEB40057F50A /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		32D6306E2A2E527E0057F50A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -238,16 +273,18 @@
 			files = (
 				32D630AE2A2E593B0057F50A /* CGFloat+ToRadians.swift in Sources */,
 				32D630A02A2E58180057F50A /* UIImage+UILabel.swift in Sources */,
-				32D6307A2A2E527E0057F50A /* ViewController.swift in Sources */,
+				32D6307A2A2E527E0057F50A /* WheelViewController.swift in Sources */,
 				32D6308F2A2E56E60057F50A /* SelectedView.swift in Sources */,
 				32D630922A2E571C0057F50A /* SelectedViewController.swift in Sources */,
 				32D630A22A2E58360057F50A /* UIView+Rotate.swift in Sources */,
+				32D630BC2A2FE0520057F50A /* FileUpload.swift in Sources */,
 				32D630992A2E57BF0057F50A /* TestData.swift in Sources */,
 				32D6309D2A2E57EE0057F50A /* UIColor+Random.swift in Sources */,
 				32D630972A2E57A80057F50A /* Slice.swift in Sources */,
 				32D630762A2E527E0057F50A /* AppDelegate.swift in Sources */,
 				32D630A42A2E58780057F50A /* UIView+Scale.swift in Sources */,
 				32D630AC2A2E58FE0057F50A /* WheelView.swift in Sources */,
+				32D630B42A2FAE710057F50A /* ViewController.swift in Sources */,
 				32D630782A2E527E0057F50A /* SceneDelegate.swift in Sources */,
 				32D630A82A2E58BD0057F50A /* WheelError.swift in Sources */,
 				32D630A62A2E589E0057F50A /* WheelDelegate.swift in Sources */,
@@ -397,6 +434,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WheelOfFate/WheelOfFate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VR7223ZYQY;
@@ -416,8 +454,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.meltonlogan.WheelOfFate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -429,6 +467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WheelOfFate/WheelOfFate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VR7223ZYQY;
@@ -448,8 +487,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.meltonlogan.WheelOfFate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;

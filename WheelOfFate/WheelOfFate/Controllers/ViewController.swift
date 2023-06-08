@@ -2,97 +2,93 @@
 //  ViewController.swift
 //  WheelOfFate
 //
-//  Created by Logan Melton on 6/5/23.
+//  Created by Logan Melton on 6/6/23.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
-  var wheelView: WheelView!
-  
-  var selectionView: SelectedView!
-  var diameter: CGFloat = 0
-  let data = TestData()
-  var selectedIndex: Int = 0
-  
+  var titleLabel: UILabel!
+  var wheelImg: UIImageView!
+  var uploadButton: UIButton!
+
+  var docPicker: UIDocumentPickerViewController!
+  var fileURL: URL!
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    showWheel()
-  }
-  
-  func showWheel() {
-    if view.frame.height < view.frame.width {
-      diameter = view.frame.height
-    } else {
-      diameter = view.frame.width
-    }
-    
-    var slices = [Slice]()
-    for (member, _) in data.data {
-      let slice = Slice.init(name: member)
-      let label = UILabel(frame: CGRect(x: 0, y: 0, width: diameter / 8, height: diameter / CGFloat(data.data.count) ))
-      label.text = member
-      label.textAlignment = .center
-      label.textColor = UIColor.label
-      let image = UIImage.imageWithLabel(label: label)
-      slice.image = image
-      slice.color = .random()
-      slices.append(slice)
-    }
-    
-    wheelView = WheelView(center: CGPoint(x: view.frame.width / 2,
-                                          y: view.frame.height / 2),
-                          diameter: diameter,
-                          slices: slices
-
-    )
-    wheelView.delegate = self
-    view.addSubview(wheelView)
-//    wheelView.spinButton.addTarget(self, action: #selector(spinTheWheel), for: .touchUpInside)
-  }
-}
-
-extension ViewController: WheelDelegate {
-  func shouldSelectObject() -> Int? {
-    selectedIndex = Int.random(in: 0 ..< data.data.count)
-    // PRECHECK
-    return selectedIndex
-  }
-  
-  func finishedSelecting(index: Int?, error: WheelError?) {
-    print("First or Second?")
-    // TODO: HERE!!!
-    guard let selection = wheelView.slices?[selectedIndex].name else { return }
-    let vc = SelectedViewController(selected: selection, message: "And the winner is...")
-    vc.modalPresentationStyle = .fullScreen
-    vc.modalTransitionStyle = .crossDissolve
-    show(vc, sender: self)
-    guard let error = error else { return }
-    print("WVC 64: Error == nil")
-    print(error)
+    styleView()
+    layoutView()
   }
 }
 
 extension ViewController {
+  private func styleView() {
+    titleLabel = UILabel()
+    titleLabel.translatesAutoresizingMaskIntoConstraints = false
+    titleLabel.font = .preferredFont(forTextStyle: .largeTitle)
+    titleLabel.text = "WHEEL OF FATE!!!"
+    titleLabel.textAlignment = .center
+
+    wheelImg = UIImageView()
+    wheelImg.translatesAutoresizingMaskIntoConstraints = false
+    wheelImg.image = UIImage(named: "wheel")
+
+    uploadButton = UIButton()
+    uploadButton.translatesAutoresizingMaskIntoConstraints = false
+    var config = UIButton.Configuration.filled()
+    config.title = "Upload Your Options"
+    config.baseBackgroundColor = .red
+    config.titlePadding = 4
+    config.titleAlignment = .center
+    uploadButton.configuration = config
+    uploadButton.addTarget(self, action: #selector(buttonBooped), for: .touchUpInside)
+  }
+
+  private func layoutView() {
+    view.addSubview(titleLabel)
+    NSLayoutConstraint.activate([
+      titleLabel.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2),
+      titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+    ])
+
+    view.addSubview(wheelImg)
+    NSLayoutConstraint.activate([
+      wheelImg.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 2),
+      wheelImg.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      wheelImg.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+      wheelImg.heightAnchor.constraint(equalToConstant: view.frame.height * 0.75),
+      wheelImg.widthAnchor.constraint(equalTo: wheelImg.heightAnchor)
+    ])
+
+    view.addSubview(uploadButton)
+    NSLayoutConstraint.activate([
+      uploadButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      uploadButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+      uploadButton.heightAnchor.constraint(equalToConstant: 100),
+      uploadButton.widthAnchor.constraint(equalToConstant: 100)
+    ])
+  }
+}
+
+extension ViewController: UIDocumentPickerDelegate {
   @objc
-  func spinTheWheel(_ sender: UIButton) {
-    if let slicesCount = wheelView.slices?.count {
-      if let index = wheelView.delegate?.shouldSelectObject() {
-        wheelView.selectionIndex = index
-      }
-      
-      if (wheelView.selectionIndex >= 0 && wheelView.selectionIndex < slicesCount ) {
-        wheelView.performSelection()
-        wheelView.selectionIndex = 0
-      } else {
-        let error = WheelError.init(message: "Invalid selection index", code: 0)
-        print("This Error")
-        wheelView.performFinish(with: error)
-      }
-    } else {
-      let error = WheelError.init(message: "No Slices", code: 0)
-      print("No, This One")
-      wheelView.performFinish(with: error)
-    }
+  func buttonBooped() {
+    docPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.spreadsheet])
+    docPicker.delegate = self
+    docPicker.directoryURL = .downloadsDirectory
+    present(docPicker, animated: true)
+  }
+
+  func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+    
+    guard urls.count == 1 else { return }
+    fileURL = urls[0]
+    print(fileURL)
+  }
+
+  func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+
   }
 }

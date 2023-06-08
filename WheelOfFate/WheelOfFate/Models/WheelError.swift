@@ -10,7 +10,7 @@ import UIKit
 class WheelError: Error {
   let message: String
   let code: Int
-  
+
   init(message: String, code: Int) {
     self.message = message
     self.code = code
