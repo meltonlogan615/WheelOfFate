@@ -10,9 +10,7 @@ import AVFoundation
 import UIKit
 
 class WheelAnimation {
-  var player: AVAudioPlayer!
   var delay: Double = 0
-  var currentSlice: Int = 0
   let soundID: SystemSoundID = 1104
 }
 
@@ -22,13 +20,14 @@ extension WheelAnimation {
   func fastSpin<T: Sequence>(with items: T?) -> CABasicAnimation {
     guard let items = items else { return CABasicAnimation() }
     var count = 0
-    for _ in items { count += 1}
+    for _ in items { count += 1 }
     let fastSpin = CABasicAnimation.init(keyPath: "transform.rotation")
     fastSpin.duration = 0.7
     fastSpin.repeatCount = 3
-
+    Timer.scheduledTimer(withTimeInterval: Double(count) / fastSpin.duration, repeats: false) { _ in
+      AudioServicesPlaySystemSound(self.soundID)
+    }
 // TODO #1: Needs to make sound as each slice passes by indicator
-
     fastSpin.fromValue = NSNumber(floatLiteral: 0)
     fastSpin.toValue = NSNumber(floatLiteral: .pi * 2)
     fastSpin.beginTime = CACurrentMediaTime() + delay
@@ -70,3 +69,5 @@ extension WheelAnimation {
     return selectionSpin
   }
 }
+
+

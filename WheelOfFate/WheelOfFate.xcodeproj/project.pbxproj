@@ -28,7 +28,8 @@
 		32D630AE2A2E593B0057F50A /* CGFloat+ToRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D630AD2A2E593B0057F50A /* CGFloat+ToRadians.swift */; };
 		32D630B02A2E59630057F50A /* WheelAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D630AF2A2E59630057F50A /* WheelAnimation.swift */; };
 		32D630B42A2FAE710057F50A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D630B32A2FAE710057F50A /* ViewController.swift */; };
-		32D630BC2A2FE0520057F50A /* FileUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D630BB2A2FE0520057F50A /* FileUpload.swift */; };
+		32D630F02A3360650057F50A /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = 32D630EF2A3360650057F50A /* SwiftCSV */; };
+		32D630F42A33716A0057F50A /* DocPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D630F32A33716A0057F50A /* DocPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,8 +56,8 @@
 		32D630AD2A2E593B0057F50A /* CGFloat+ToRadians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+ToRadians.swift"; sourceTree = "<group>"; };
 		32D630AF2A2E59630057F50A /* WheelAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelAnimation.swift; sourceTree = "<group>"; };
 		32D630B32A2FAE710057F50A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		32D630BB2A2FE0520057F50A /* FileUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUpload.swift; sourceTree = "<group>"; };
 		32D630BD2A3118800057F50A /* WheelOfFate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WheelOfFate.entitlements; sourceTree = "<group>"; };
+		32D630F32A33716A0057F50A /* DocPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D630F02A3360650057F50A /* SwiftCSV in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +137,7 @@
 			children = (
 				32D630982A2E57BF0057F50A /* TestData.swift */,
 				32D630A72A2E58BD0057F50A /* WheelError.swift */,
-				32D630BB2A2FE0520057F50A /* FileUpload.swift */,
+				32D630F32A33716A0057F50A /* DocPicker.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,6 +193,7 @@
 			);
 			name = WheelOfFate;
 			packageProductDependencies = (
+				32D630EF2A3360650057F50A /* SwiftCSV */,
 			);
 			productName = WheelOfFate;
 			productReference = 32D630722A2E527E0057F50A /* WheelOfFate.app */;
@@ -221,6 +224,7 @@
 			);
 			mainGroup = 32D630692A2E527E0057F50A;
 			packageReferences = (
+				32D630EE2A3360650057F50A /* XCRemoteSwiftPackageReference "SwiftCSV" */,
 			);
 			productRefGroup = 32D630732A2E527E0057F50A /* Products */;
 			projectDirPath = "";
@@ -276,8 +280,8 @@
 				32D6307A2A2E527E0057F50A /* WheelViewController.swift in Sources */,
 				32D6308F2A2E56E60057F50A /* SelectedView.swift in Sources */,
 				32D630922A2E571C0057F50A /* SelectedViewController.swift in Sources */,
+				32D630F42A33716A0057F50A /* DocPicker.swift in Sources */,
 				32D630A22A2E58360057F50A /* UIView+Rotate.swift in Sources */,
-				32D630BC2A2FE0520057F50A /* FileUpload.swift in Sources */,
 				32D630992A2E57BF0057F50A /* TestData.swift in Sources */,
 				32D6309D2A2E57EE0057F50A /* UIColor+Random.swift in Sources */,
 				32D630972A2E57A80057F50A /* Slice.swift in Sources */,
@@ -517,6 +521,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		32D630EE2A3360650057F50A /* XCRemoteSwiftPackageReference "SwiftCSV" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftcsv/SwiftCSV.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		32D630EF2A3360650057F50A /* SwiftCSV */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 32D630EE2A3360650057F50A /* XCRemoteSwiftPackageReference "SwiftCSV" */;
+			productName = SwiftCSV;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 32D6306A2A2E527E0057F50A /* Project object */;
 }

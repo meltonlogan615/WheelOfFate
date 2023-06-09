@@ -11,6 +11,7 @@ import UIKit
 // MARK: - Wheel Container
 class WheelView: UIView {
   let animator = WheelAnimation()
+  let soundID: SystemSoundID = 1104
   weak var delegate: WheelDelegate?
 
   var selectionIndex: Int = -1
@@ -109,6 +110,7 @@ extension WheelView {
   @objc
   func spinTheWheel(_ sender: UIButton) {
     if let slicesCount = slices?.count {
+      
       if let index = delegate?.shouldSelectObject() {
         selectionIndex = index
       }

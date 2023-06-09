@@ -11,6 +11,7 @@ extension UIImage {
   class func imageWithLabel(label: UILabel) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(label.bounds.size, false, 1.0)
     //    label.adjustsFontSizeToFitWidth = true
+    label.sizeToFit()
     label.layer.render(in: UIGraphicsGetCurrentContext()!)
     let img = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()

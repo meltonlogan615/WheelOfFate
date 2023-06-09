@@ -13,7 +13,9 @@ class SelectedView: UIView {
   var borderView: UIView!
   var messageLabel: UILabel!
   var selectedLabel: UILabel!
-  var startOverButton: UIButton!
+  var spinAgainButton: UIButton!
+  var uploadNewFileButton: UIButton!
+  var buttonStack: UIStackView!
 
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -56,9 +58,18 @@ extension SelectedView {
     selectedLabel.numberOfLines = 0
     selectedLabel.textAlignment = .center
 
-    startOverButton = UIButton()
-    startOverButton.translatesAutoresizingMaskIntoConstraints = false
-    startOverButton.setTitle("Start Over", for: [])
+    spinAgainButton = UIButton()
+    spinAgainButton.translatesAutoresizingMaskIntoConstraints = false
+    spinAgainButton.setTitle("Spin Again", for: [])
+
+    uploadNewFileButton = UIButton()
+    uploadNewFileButton.translatesAutoresizingMaskIntoConstraints = false
+    uploadNewFileButton.setTitle("Upload A New File", for: [])
+
+    buttonStack = UIStackView(arrangedSubviews: [spinAgainButton, uploadNewFileButton])
+    buttonStack.translatesAutoresizingMaskIntoConstraints = false
+    buttonStack.axis = .horizontal
+    buttonStack.distribution = .fillEqually
   }
 
   func layout() {
@@ -94,12 +105,12 @@ extension SelectedView {
       selectedLabel.heightAnchor.constraint(equalTo: borderView.heightAnchor)
     ])
 
-    addSubview(startOverButton)
+    addSubview(buttonStack)
     NSLayoutConstraint.activate([
-      startOverButton.topAnchor.constraint(equalToSystemSpacingBelow: borderView.bottomAnchor, multiplier: 2),
-      startOverButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-      startOverButton.trailingAnchor.constraint(equalTo: trailingAnchor),
-      startOverButton.bottomAnchor.constraint(equalTo: bottomAnchor)
+      buttonStack.topAnchor.constraint(equalToSystemSpacingBelow: borderView.bottomAnchor, multiplier: 2),
+      buttonStack.leadingAnchor.constraint(equalTo: borderView.leadingAnchor),
+      buttonStack.trailingAnchor.constraint(equalTo: borderView.trailingAnchor),
+      buttonStack.heightAnchor.constraint(equalToConstant: 80)
     ])
   }
 }

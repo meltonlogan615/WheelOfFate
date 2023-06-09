@@ -83,11 +83,11 @@ class WheelSlice: CALayer {
       case .toRadians(180):
         return (-size / 2)
       case .toRadians(120):
-        return (radius / 2.7 - size / 2)
+        return (radius / 2.7 - size / 4)
       case .toRadians(90):
-        return (radius / 2.4 - size / 2)
+        return (radius / 2.4 - size / 4)
       default:
-        return ((xCenter - size / 2) + (size / 2))
+        return ((xCenter - size / 2) + (size / 4))
       }
     }()
 
@@ -100,7 +100,7 @@ class WheelSlice: CALayer {
       case .toRadians(90):
         return (radius / 2.4 - size / 1.75)
       default:
-        return (yCenter - size / 1.25)
+        return (yCenter - size / 1.5)
       }
     }()
 
@@ -123,10 +123,14 @@ class WheelSlice: CALayer {
     ctx.saveGState()
     ctx.translateBy(x: center.x, y: center.y)
     ctx.rotate(by: self.startAngle)
-    image.draw(in: CGRect(x: xPosition - (size),
-                          y: yPosition - (size / 6),
-                          width: lineLegth,
-                          height: size))
+    image.withTintColor(.black)
+//    guard let newImage = image.rotateImage(angle: 45) else { return }
+    image.draw(at: CGPoint(x: xPosition - size, y: yPosition))
+//    newImage.draw(at: CGPoint(x: xPosition - size, y: yCenter))
+//    newImage.draw(in: CGRect(x: xPosition,// - (size),
+//                          y: yPosition,// - (size / 6),
+//                          width: lineLegth,// / 2,
+//                          height: size))
     ctx.restoreGState()
     UIGraphicsPopContext()
   }

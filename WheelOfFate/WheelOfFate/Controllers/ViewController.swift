@@ -5,6 +5,7 @@
 //  Created by Logan Melton on 6/6/23.
 //
 
+import SwiftCSV
 import UIKit
 
 class ViewController: UIViewController {
@@ -42,7 +43,7 @@ extension ViewController {
     config.titlePadding = 4
     config.titleAlignment = .center
     uploadButton.configuration = config
-    uploadButton.addTarget(self, action: #selector(buttonBooped), for: .touchUpInside)
+    uploadButton.addTarget(self, action: #selector(uploadFileBooped), for: .touchUpInside)
   }
 
   private func layoutView() {
@@ -72,23 +73,30 @@ extension ViewController {
   }
 }
 
-extension ViewController: UIDocumentPickerDelegate {
+extension ViewController: UIDocumentPickerDelegate, DocumentSender {
   @objc
-  func buttonBooped() {
-    docPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.spreadsheet])
+  func uploadFileBooped() {
+    docPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.commaSeparatedText])
     docPicker.delegate = self
     docPicker.directoryURL = .downloadsDirectory
     present(docPicker, animated: true)
   }
 
-  func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-    
-    guard urls.count == 1 else { return }
-    fileURL = urls[0]
-    print(fileURL)
+  func documentPicker(_ controller: UIDocumentPickerViewController,
+                      didPickDocumentsAt urls: [URL]) {
+    let picker = DocPicker()
+    picker.poop(urls: urls)
+    print(picker.usableData)
+    let wheel = WheelViewController()
+    wheel.data = picker.usableData
+    wheel.modalPresentationStyle = .overCurrentContext
+    self.titleLabel.isHidden = true
+    self.wheelImg.isHidden = true
+    self.uploadButton.isHidden = true
+    present(wheel, animated: true)
   }
 
   func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-
+    docPicker.dismiss(animated: true)
   }
 }
