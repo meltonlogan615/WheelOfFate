@@ -11,7 +11,6 @@ import UIKit
 // MARK: - Wheel Container
 class WheelView: UIView {
   let animator = WheelAnimation()
-  let soundID: SystemSoundID = 1104
   weak var delegate: WheelDelegate?
 
   var selectionIndex: Int = -1
@@ -212,6 +211,7 @@ extension WheelView: CAAnimationDelegate {
   }
 }
 
+//  MARK: - PLAY SOUND AS POINTER PASSES EACH SLICE... STILL NOT OPERATIONAL
 extension WheelView {
   enum Speed {
     case fast, slow, selection

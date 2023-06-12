@@ -6,12 +6,10 @@
 //
 //  swiftlint: disable compiler_protocol_init
 
-import AVFoundation
 import UIKit
 
 class WheelAnimation {
   var delay: Double = 0
-  let soundID: SystemSoundID = 1104
 }
 
 // MARK: - SPIN ANIMATIONS
@@ -24,10 +22,6 @@ extension WheelAnimation {
     let fastSpin = CABasicAnimation.init(keyPath: "transform.rotation")
     fastSpin.duration = 0.7
     fastSpin.repeatCount = 3
-    Timer.scheduledTimer(withTimeInterval: Double(count) / fastSpin.duration, repeats: false) { _ in
-      AudioServicesPlaySystemSound(self.soundID)
-    }
-
     fastSpin.fromValue = NSNumber(floatLiteral: 0)
     fastSpin.toValue = NSNumber(floatLiteral: .pi * 2)
     fastSpin.beginTime = CACurrentMediaTime() + delay

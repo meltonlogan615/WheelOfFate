@@ -5,7 +5,6 @@
 //  Created by Logan Melton on 6/5/23.
 //
 
-import AVFoundation
 import UIKit
 
 protocol DocumentSender {
@@ -84,8 +83,6 @@ extension WheelViewController: WheelDelegate {
 extension WheelViewController {
   @objc
   func spinTheWheel(_ sender: UIButton) {
-    let soundID: SystemSoundID = 1104
-    AudioServicesPlaySystemSound(soundID)
     if let slicesCount = wheelView.slices?.count {
       if let index = wheelView.delegate?.shouldSelectObject() {
         wheelView.selectionIndex = index
