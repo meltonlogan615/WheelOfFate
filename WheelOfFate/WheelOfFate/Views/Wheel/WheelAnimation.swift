@@ -27,7 +27,7 @@ extension WheelAnimation {
     Timer.scheduledTimer(withTimeInterval: Double(count) / fastSpin.duration, repeats: false) { _ in
       AudioServicesPlaySystemSound(self.soundID)
     }
-// TODO #1: Needs to make sound as each slice passes by indicator
+
     fastSpin.fromValue = NSNumber(floatLiteral: 0)
     fastSpin.toValue = NSNumber(floatLiteral: .pi * 2)
     fastSpin.beginTime = CACurrentMediaTime() + delay
@@ -69,5 +69,3 @@ extension WheelAnimation {
     return selectionSpin
   }
 }
-
-

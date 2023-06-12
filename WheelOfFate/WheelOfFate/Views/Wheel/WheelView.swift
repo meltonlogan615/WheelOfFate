@@ -110,7 +110,7 @@ extension WheelView {
   @objc
   func spinTheWheel(_ sender: UIButton) {
     if let slicesCount = slices?.count {
-      
+
       if let index = delegate?.shouldSelectObject() {
         selectionIndex = index
       }
